@@ -6,10 +6,10 @@ enum IOOPERATION menu_list()
 {
 
     enum IOOPERATION choice;
-    printf("Enter the choice\n");
-    printf("0: exit\n");
-    printf("1: Accept record\n");
-    printf("2: Print record\n");
+    printf("Enter choice    :   \n");
+    printf("0 .  Exit\n");
+    printf("1 .  Accept record\n");
+    printf("2 .  Print record\n");
     scanf("%d", &choice);
     return choice;
 }
