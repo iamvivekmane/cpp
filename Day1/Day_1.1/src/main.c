@@ -46,6 +46,7 @@ int main()
 {
     int choice;
     struct Employee emp;
+
     while ((choice = menu_list()) != 0)
     {
         switch (choice)
