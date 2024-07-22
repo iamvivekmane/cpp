@@ -4,6 +4,7 @@
     <configuration id="cdt.managedbuild.config.gnu.macosx.exe.debug.1963749493" name="Debug">
         		
         <extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
+point="org.eclipse.cdt.core.LanguageSettingsProvider">
             			
             <provider copy-of="extension" id="org.eclipse.cdt.ui.UserLanguageSettingsProvider"/>
             			
