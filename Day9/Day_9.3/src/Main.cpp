@@ -1,58 +1,66 @@
 #include <iostream>
 using namespace std;
-
 class Complex
 {
 private:
     int real;
-    int imag;
+    int imaginary;
 
 public:
+    // Parameterless constructor
     Complex(void)
     {
         this->real = 0;
-        this->imag = 0;
+        this->imaginary = 0;
     }
-    Complex(int real, int imag)
+
+    // Parameterized constructor
+    Complex(int real, int imaginary)
     {
         this->real = real;
-        this->imag = imag;
+        this->imaginary = imaginary;
     }
-    void acceptRecord(void)
+
+    // Function to accept record from the user
+    void accept_record()
     {
-        cout << "Enter real number	:	";
-        cin >> this->real;
-        cout << "Enter imag number	:	";
-        cin >> this->imag;
+        cout << "Real     :   ";
+        cin >> real;
+        cout << "Imaginary:   ";
+        cin >> imaginary;
     }
-    void printRecord(void)
+
+    // Function to print record
+    void print_record()
     {
-        cout << "Real Number	:	" << this->real << endl;
-        cout << "Imag Number	:	" << this->imag << endl;
-        cout << endl;
+        cout << "-------------" << endl;
+        cout << "Real     :   " << real << endl;
+        cout << "Imaginary:   " << imaginary << endl;
     }
 };
-int main(void)
+int main()
 {
-    Complex arr[3] = {Complex(10, 20), Complex(30, 40), Complex(50, 60)};
-    for (int i = 0; i < 3; i++)
-    {
-        arr[i].printRecord();
-    }
+    // Declared array of objects and initialized it with initializer list
+    // Complex arr[3] = {Complex(10, 20), Complex(30, 40), Complex(50, 60)};
+    // For loop to print record for 3 objects
+    // for (int i = 0; i < 3; i++)
+    // {
+    //     arr[i].print_record();
+    // }
 
-    return 0;
-}
-int main1(void)
-{
+    // Declared array of objects
     Complex arr[3];
+
+    // For loop to accept record for 3 objects
     for (int i = 0; i < 3; i++)
     {
-        arr[i].acceptRecord();
+        arr[i].accept_record();
     }
 
+    // For loop to print record for 3 objects
     for (int i = 0; i < 3; i++)
     {
-        arr[i].printRecord();
+        arr[i].print_record();
     }
 
     return 0;
