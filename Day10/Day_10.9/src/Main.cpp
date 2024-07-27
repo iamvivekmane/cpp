@@ -27,6 +27,7 @@ int main(void)
 {
     const Test t1;
     t1.print();
-    // t1.show();	//Not OK
+    // show() cannot be called because object is constant and the show function is not
+    // t1.show(); // Not OK
     return 0;
 }

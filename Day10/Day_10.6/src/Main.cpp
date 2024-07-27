@@ -3,29 +3,40 @@ using namespace std;
 class Test
 {
 private:
-    const int num1;
+    int num1;
+    int num2;
 
 public:
-    Test(void) : num1(10)
+    // Test *const this = &t
+    Test(void) : num1(10), num2(20)
     {
-        // this->num1 = 10; //Not Ok
+        ++this->num1;
+        ++this->num2;
     }
-    void show_record()
+    // Test *const this = &t
+    void showRecord(void)
     {
-        // ++this->num1; //Not Ok
-        cout << "Number1  :   " << this->num1 << endl;
+        ++this->num1;
+        ++this->num2;
+
+        cout << "Num1	:	" << this->num1 << endl;
+        cout << "Num2	:	" << this->num2 << endl;
     }
-    void print_record()
+    // const Test *const this = &t
+    void printRecord(void) const
     {
-        // ++this->num1; //Not Ok
-        cout << "Number1  :   " << this->num1 << endl;
+        //++ this->num1;  //Not OK
+        //++ this->num2;	//Not OK
+
+        cout << "Num1	:	" << this->num1 << endl;
+        cout << "Num2	:	" << this->num2 << endl;
     }
 };
-int main()
+// int main( void )const //Error non-member function cannot have 'const' qualifier
+int main(void)
 {
-    Test t1;
-    t1.show_record();
-    t1.print_record();
-
+    Test t;
+    t.showRecord();
+    t.printRecord();
     return 0;
 }
