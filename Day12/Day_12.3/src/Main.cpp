@@ -1,6 +1,7 @@
 #include <iostream>
+#include "../include/IllegalArgumentException.h"
+#include "../include/Complex.h"
 using namespace std;
-
 using namespace kdac;
 void accept_record(Complex &complex) throw(IllegalArgumentException)
 {
