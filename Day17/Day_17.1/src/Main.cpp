@@ -12,26 +12,34 @@ public:
     int num3;
 
 public:
-    Test(void)
+    Test(int num1, int num2, int num3)
     {
-        this->num1 = 10;
-        this->num2 = 20;
-        this->num3 = 30;
+        this->num1 = num1;
+        this->num2 = num2;
+        this->num3 = num3;
     }
-    int getNum1(void)
+
+public:
+    int get_num1(void)
     {
         return this->num1;
     }
-    int getNum2(void)
+    int get_num2(void)
     {
         return this->num2;
     }
 };
-int main(void)
+
+int main()
 {
-    Test t;
-    cout << "Num1	:	" << t.getNum1() << endl;
-    cout << "Num2	:	" << t.getNum2() << endl;
-    cout << "Num3	:	" << t.num3 << endl;
+    // Test t1(10, 20, 30);
+    // cout << "Element  :   " << t1.num1 << endl; // Not ok
+    // cout << "Element  :   " << t1.num2 << endl; // Not ok
+    // cout << "Element  :   " << t1.num3 << endl; // Ok
+
+    Test t1(10, 20, 30);
+    cout << "Element    :   " << t1.get_num1() << endl;
+    cout << "Element    :   " << t1.get_num2() << endl;
+    cout << "Element    :   " << t1.num3 << endl;
     return 0;
 }
