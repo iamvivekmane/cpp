@@ -3,51 +3,56 @@ using namespace std;
 class Point
 {
 private:
-    int xPos;
-    int yPos;
+    int x_position;
+    int y_position;
 
 public:
-    Point(int xPos = 0, int yPos = 0) : xPos(xPos), yPos(yPos)
-    {
-    }
-    // Point *const this = &pt1;
-    // Point other = pt2
-    /*Point operator+( Point other )
-    {
-        Point temp;
-        temp.xPos = this->xPos + other.xPos;
-        temp.yPos = this->yPos + other.yPos;
-        return temp;
-    }*/
+    Point(int x_position = 0, int y_position = 0) : x_position(x_position), y_position(y_position) {}
+    // Point *const this = &p1;
+    // Point other = p2;
+    // Point operator+(Point other)
+    // {
+    //     Point temp;
+    //     temp.x_position = this->x_position + other.x_position;
+    //     temp.y_position = this->y_position + other.y_position;
+    //     return temp;
+    // }
     Point operator-(Point other)
     {
         Point temp;
-        temp.xPos = this->xPos + other.xPos;
-        temp.yPos = this->yPos + other.yPos;
+        temp.x_position = this->x_position - other.x_position;
+        temp.y_position = this->y_position - other.y_position;
         return temp;
     }
-    void printRecord(void)
+    void print_record(void)
     {
-        cout << this->xPos << "	" << this->yPos << endl;
+        cout << "X position   :   " << this->x_position << endl;
+        cout << "Y position   :   " << this->y_position << endl;
     }
-    friend Point operator+(Point &pt1, Point &pt2);
+    friend Point operator+(Point &p1, Point &p2);
+    friend Point operator-(Point &p1, Point &p2);
 };
-Point operator+(Point &pt1, Point &pt2)
+Point operator+(Point &p1, Point &p2)
 {
     Point temp;
-    temp.xPos = pt1.xPos + pt2.xPos;
-    temp.yPos = pt1.yPos + pt2.yPos;
+    temp.x_position = p1.x_position + p2.x_position;
+    temp.y_position = p1.y_position + p2.y_position;
     return temp;
 }
-int main(void)
+Point operator-(Point &p1, Point &p2)
 {
-    Point pt1(10, 20);
-    Point pt2(30, 40);
-    Point pt3;
-    // pt3 = pt1 + pt2; //pt3 = pt1.operator+( pt2 )
-    // pt3 = pt1 + pt2; //pt3 = operator+( pt1, pt2 );
-
-    pt3 = pt1 - pt2; // pt3 = pt1.operator-( pt2 );
-    pt3.printRecord();
+    Point temp;
+    temp.x_position = p1.x_position - p2.x_position;
+    temp.y_position = p1.y_position - p2.y_position;
+    return temp;
+}
+int main()
+{
+    struct Point p1(10, 20);
+    struct Point p2(30, 40);
+    struct Point p3;
+    // p3 = operator+(p1, p2);
+    p3 = operator-(p1, p2);
+    p3.print_record();
     return 0;
 }
