@@ -3,49 +3,48 @@ using namespace std;
 class Point
 {
 private:
-    int xPos;
-    int yPos;
+    int x_position;
+    int y_position;
 
 public:
-    Point(int xPos = 0, int yPos = 0)
+    Point(int x_position = 0, int y_position = 0)
     {
-        this->xPos = xPos;
-        this->yPos = yPos;
+        this->x_position = x_position;
+        this->y_position = y_position;
     }
-    // Point *const this = &pt1
-    // Point &other = pt2
+    // Point *const this = &p1;
+    // Point &other = p2;
     Point operator+(Point &other)
     {
         Point temp;
-        temp.xPos = this->xPos + other.xPos;
-        temp.yPos = this->yPos + other.yPos;
+        temp.x_position = this->x_position + other.x_position;
+        temp.y_position = this->y_position + other.y_position;
         return temp;
     }
-    Point operator+(int value)
+    Point operator+(int element)
     {
         Point temp;
-        temp.xPos = this->xPos + value;
-        temp.yPos = this->yPos + value;
+        temp.x_position = this->x_position + element;
+        temp.y_position = this->y_position + element;
         return temp;
     }
-    void printRecord(void)
+    void print_record(void)
     {
-        cout << this->xPos << "	" << this->yPos << endl;
+        cout << "X position   :   " << this->x_position << endl;
+        cout << "Y position   :   " << this->y_position << endl;
     }
 };
 int main(void)
 {
-    Point pt1(10, 20);
-    Point pt2 = pt1 + 5; // pt2 = pt1.operator+( pt2 );
-    pt2.printRecord();
-    return 0;
-}
-int main1(void)
-{
-    Point pt1(10, 20);
-    Point pt2(30, 40);
-    Point pt3;
-    pt3 = pt1 + pt2; // pt3 = pt1.operator+( pt2 );
-    pt3.printRecord();
+    // Point p1(10, 20);
+    // Point p2(10, 20);
+    // Point p3;
+    // p3 = p1 + p2; // p3 = p1.operator+(p2);
+    // p3.print_record();
+    // // ----------------------------------------------------------------------
+    Point p1(10, 20);
+    Point p2;
+    p2 = p1 + 5;
+    p2.print_record();
     return 0;
 }
