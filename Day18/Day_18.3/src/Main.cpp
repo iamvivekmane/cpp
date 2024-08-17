@@ -1,61 +1,67 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 class Point
 {
 private:
-	int xPos;
-	int yPos;
+    int x_position;
+    int y_position;
+
 public:
-	Point( int xPos = 0, int yPos = 0 )
-	{
-		this->xPos = xPos;
-		this->yPos = yPos;
-	}
-	bool operator==( Point &other )
-	{
-		return this->xPos == other.xPos && this->yPos == other.yPos;
-	}
-	void printRecord( void )
-	{
-		cout<<this->xPos<<"	"<<this->yPos<<endl;
-	}
+    Point(int x_position = 0, int y_position = 0)
+    {
+        this->x_position = x_position;
+        this->y_position = y_position;
+    }
+    // Point *const this = &p1;
+    // Point &other = p2;
+    bool operator==(Point &other)
+    {
+        return this->x_position == other.x_position && this->y_position == other.y_position;
+    }
+    void print_record(void)
+    {
+        cout << "X position   :   " << this->x_position << endl;
+        cout << "Y position   :   " << this->y_position << endl;
+    }
 };
-int main( void )
+int main(void)
 {
-	Point pt1(10,20);
-	Point pt2(10,20);
-	cout<<( pt1 == pt2  ? "Equal" : "Not Equal" )<<endl;
-	return 0;
-}
-int main3( void )
-{
-	Point pt1(10,20);
-	Point pt2(10,20);
-	if( pt1 == pt2 )
-		cout<<"Equal"<<endl;
-	else
-		cout<<"Not Equal"<<endl;
-	return 0;
-}
-int main2( void )
-{
-	Point pt1(10,20);
-	Point pt2(10,20);
-	bool status = pt1 == pt2; //status = pt1.operator==( pt2 );
-	if( status  )
-		cout<<"Equal"<<endl;
-	else
-		cout<<"Not Equal"<<endl;
-	return 0;
-}
-int main1( void )
-{
-	Point pt1(10,20);
-	Point pt2(10,20);
-	bool status = pt1 == pt2; //status = pt1.operator==( pt2 );
-	if( status == true )
-		cout<<"Equal"<<endl;
-	else
-		cout<<"Not Equal"<<endl;
-	return 0;
+    // Point p1(10, 20);
+    // Point p2(11, 20);
+    // bool status = p1 == p2; // status = p1.operator==(pt2);
+    // if (status == true)
+    // {
+    //     cout << "Equal" << endl;
+    // }
+    // else
+    // {
+    //     cout << "Not equal" << endl;
+    // }
+    // // ---------------------------------------------------------------------
+    // Point p1(10, 20);
+    // Point p2(11, 20);
+    // bool status = p1 == p2; // status = p1.operator==(pt2);
+    // if (status)
+    // {
+    //     cout << "Equal" << endl;
+    // }
+    // else
+    // {
+    //     cout << "Not equal" << endl;
+    // }
+    // // ---------------------------------------------------------------------
+    // Point p1(10, 20);
+    // Point p2(11, 20);
+    // if (p1 == p2)
+    // {
+    //     cout << "Equal" << endl;
+    // }
+    // else
+    // {
+    //     cout << "Not equal" << endl;
+    // // ---------------------------------------------------------------------
+    Point p1(10, 20);
+    Point p2(11, 20);
+    cout << (p1 == p2 ? "Equal" : "Not equal") << endl;
+    return 0;
 }
