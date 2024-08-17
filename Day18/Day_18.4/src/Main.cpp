@@ -14,19 +14,11 @@ public:
     }
     // Point *const this = &p1;
     // Point &other = p2;
-    Point operator++(void) // Pre-Increament
+    Point operator+=(Point &other) // Pre-Increament
     {
-        Point temp;
-        temp.x_position = ++this->x_position;
-        temp.y_position = ++this->y_position;
-        return temp;
-    }
-    Point operator++(int) // Post-Increament
-    {
-        Point temp;
-        temp.x_position = this->x_position++;
-        temp.y_position = this->y_position++;
-        return temp;
+        this->y_position += other.y_position;
+        this->x_position += other.x_position;
+        return (*this);
     }
     void print_record(void)
     {
@@ -36,16 +28,13 @@ public:
 };
 int main(void)
 {
-    // Point p1(10, 20);
-    // Point p2;
-    // p2 = ++p1;
-    // p1.print_record();
-    // p2.print_record();
-    //// --------------------------------------------------------------------------
     Point p1(10, 20);
-    Point p2;
-    p2 = p1++;
-    p1.print_record();
-    p2.print_record();
+    Point p2(30, 40);
+    Point p3(50, 60);
+    // pt1 += pt2;	//pt1.operator+=( pt2 )
+    p1 = p2 += p3;     // p1= p2.operator+=(p3);
+    p1.print_record(); // 80,100
+    p2.print_record(); // 80,100
+    p3.print_record(); // 50,60
     return 0;
 }
