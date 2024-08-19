@@ -4,38 +4,46 @@ class Complex
 {
 private:
     int real;
-    int imaginary;
-    Complex(const Complex &other)
-    {
-        cout << "Complex(const Complex &other)" << endl;
-        this->real = real;
-        this->imaginary = imaginary;
-    }
+    int imag;
 
 public:
     Complex(void)
     {
-        cout << "Complex(void)" << endl;
         this->real = 0;
-        this->imaginary = 0;
+        this->imag = 0;
     }
-    Complex(int real, int imaginary)
+    Complex(int real, int imag)
     {
-        cout << "Complex(int real, int imaginary)" << endl;
         this->real = real;
-        this->imaginary = imaginary;
+        this->imag = imag;
     }
-
-    static void test(void)
+    friend istream &operator>>(istream &cin, Complex &other)
     {
-        Complex c1(10, 20);
-        Complex c2 = c1;
+        cout << "Real Number	:	";
+        cin >> other.real;
+        cout << "Imag Number	:	";
+        cin >> other.imag;
+        return cin;
+    }
+    friend ostream &operator<<(ostream &cout, const Complex &other)
+    {
+        cout << "Real Number	:	" << other.real << endl;
+        cout << "Imag Number	:	" << other.imag << endl;
+        return cout;
     }
 };
-int main()
+
+int main(void)
 {
-    Complex c1(10, 20);
-    Complex c2 = c1;
-    Complex::test();
+    Complex c1, c2;
+    cin >> c1 >> c2;  // operator>>(operator >>(cin, c1),c2);
+    cout << c1 << c2; // operator<<(operator<<( cout, c1),c2);
+    return 0;
+}
+int main1(void)
+{
+    Complex c1;
+    cin >> c1;  // operator>>( cin, c1 );
+    cout << c1; // operator<<( cout, c1 )
     return 0;
 }
