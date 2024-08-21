@@ -24,7 +24,6 @@ public:
         return cout;
     }
 };
-
 int main()
 {
     // Complex c1(10, 20);
