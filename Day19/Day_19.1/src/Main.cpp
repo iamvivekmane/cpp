@@ -17,6 +17,14 @@ public:
         this->real = real;
         this->imaginary = imaginary;
     }
+    friend istream &operator>>(istream &cin, Complex &other)
+    {
+        cout << "Real number      :   ";
+        cin >> other.real;
+        cout << "Imaginary number :   ";
+        cin >> other.imaginary;
+        return cin;
+    }
     friend ostream &operator<<(ostream &cout, const Complex &other)
     {
         cout << "Real number      :   " << other.real << endl;
@@ -27,11 +35,12 @@ public:
 int main()
 {
     // Complex c1(10, 20);
+    // cin >> c1;
     // cout << c1;
     // // --------------------------------------------------------
 
-    Complex c1(10, 20);
-    Complex c2(30, 40);
+    Complex c1, c2;
+    cin >> c1 >> c2;
     cout << c1 << c2;
     // // --------------------------------------------------------
     return 0;
