@@ -1,80 +1,74 @@
 #include <iostream>
 #include <cstring>
 using namespace std;
-class ArrayIndexOutOfBoundException
+class String
 {
 private:
-    string message;
+    size_t length;
+    char *buffer;
 
 public:
-    ArrayIndexOutOfBoundException(string message = "Array index out of bound exception")
+    String(void) : length(0), buffer(0) {};
+    String(const char *str) : length(strlen(str)), buffer(new char[this->length + 1])
     {
-        this->message = message;
+        strcpy(this->buffer, str);
+    };
+    String(size_t length)
+    {
+        this->length = length;
+        buffer = new char[this->length + 1];
     }
-    string get_message()
+    ~String(void)
     {
-        return this->message;
-    }
-};
-class Array
-{
-private:
-    int size;
-    int *arr;
-
-public:
-    Array(void)
-    {
-        this->size = 0;
-        this->arr = NULL;
-    }
-    Array(int size)
-    {
-        this->size = size;
-        this->arr = new int[size];
-    }
-    Array(const Array &other)
-    {
-        this->size = other.size;
-        this->arr = NULL;
-        memcpy(this->arr, other.arr, size * sizeof(int));
-    }
-    ~Array()
-    {
-        if (this->arr != NULL)
+        if (buffer != NULL)
         {
-            delete[] this->arr;
-            this->arr = NULL;
+            delete[] this->buffer;
+            this->buffer = NULL;
         }
     }
-    Array &operator=(const Array &other)
+    String(const String &other) : length(other.length), buffer(new char[this->length + 1])
     {
-        this->~Array();
-        this->size = other.size;
-        this->arr = new int[this->size];
-        memcpy(this->arr, other.arr, size * sizeof(int));
+        strcpy(this->buffer, other.buffer);
+    }
+    String operator=(const String &other)
+    {
+        this->~String();
+        this->length = other.length;
+        this->buffer = new char[this->length + 1];
+        strcpy(this->buffer, other.buffer);
         return *this;
     }
-
-    int &operator[](int index) throw(ArrayIndexOutOfBoundException)
+    friend ostream &operator<<(ostream &cout, const String &other)
     {
-        if (index > 0 && index < size)
-        {
-            return this->arr[index];
-        }
-        throw ArrayIndexOutOfBoundException("Invalid index");
+        cout << other.buffer << endl;
+        return cout;
+    }
+    String operator+(const char *str)
+    {
+        String temp(this->length + strlen(str));
+        strcpy(temp.buffer, this->buffer);
+        strcat(temp.buffer, str);
+        return temp;
+    }
+    String operator+(String &other)
+    {
+        String temp(this->length + other.length);
+        strcpy(temp.buffer, this->buffer);
+        strcat(temp.buffer, other.buffer);
+        return temp;
     }
 };
 int main()
 {
-
-    // Array a1;
-    // int element = a1[9];
-    // cout << "Element  :   " << element << endl;
-    // // -----------------------------------------------------
-    Array a1;
-    a1[1] = 100;
-    cout << "Element  :   " << a1[1] << endl;
-
+    // String s1 = {"Hello"};
+    // String s2 = {"World"};
+    // cout << s2;
+    // String s3 = s1 + s2;
+    // cout << s3;
+    // // --------------------------------------------
+    String s1 = {"Hello"};
+    String s2 = s1 + "Karad";
+    cout << s2 << endl;
+    // --------------------------------------------
     return 0;
 }
