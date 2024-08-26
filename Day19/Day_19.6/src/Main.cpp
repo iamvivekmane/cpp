@@ -57,6 +57,22 @@ public:
         strcat(temp.buffer, other.buffer);
         return temp;
     }
+    void operator~(void)
+    {
+        int i = 0;
+        int j = this->length - 1;
+        while (i < j)
+        {
+            swap(this->buffer[i++], this->buffer[j--]);
+        }
+    }
+    void operator()(const char *str)
+    {
+        this->~String();
+        this->length = strlen(str);
+        this->buffer = new char[this->length + 1];
+        strcpy(this->buffer, str);
+    }
 };
 int main()
 {
@@ -66,9 +82,17 @@ int main()
     // String s3 = s1 + s2;
     // cout << s3;
     // // --------------------------------------------
-    String s1 = {"Hello"};
-    String s2 = s1 + "Karad";
-    cout << s2 << endl;
+    // String s1 = {"Hello"};
+    // String s2 = s1 + "Karad";
+    // cout << s2 << endl;
+    // // --------------------------------------------
+    // String s1 = {"Hello"};
+    // ~s1;
+    // cout << s1 << endl;
+    // // --------------------------------------------
+    String s1(5);
+    s1("Welcome");
+    cout << s1 << endl;
     // --------------------------------------------
     return 0;
 }
