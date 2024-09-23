@@ -6,7 +6,6 @@ class Person
 private:
     string name; // 24 bytes
     int age;     // 4 bytes
-
 public:
     Person(void) : name(""), age(0)
     {
