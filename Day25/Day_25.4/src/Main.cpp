@@ -5,59 +5,57 @@ class Product
 {
 private:
     string title;
+    float
+};
+class Book
+{
+private:
+    string title;
     float price;
+    int page_count;
 
 public:
+    Book(void) : title(""), price(0), page_count(0) {}
     void accept_record(void)
     {
         cout << "Title      :   ";
         cin >> this->title;
         cout << "Price      :   ";
         cin >> this->price;
-    }
-    void print_record(void)
-    {
-        cout << "Title      :   " << this->title << endl;
-        cout << "Price      :   " << this->price << endl;
-    }
-};
-class Book : public Product
-{
-private:
-    int page_count;
-
-public:
-    Book(void) : page_count(0) {}
-    void accept_record(void)
-    {
-        Product::accept_record();
         cout << "Page count :   ";
         cin >> this->page_count;
     }
     void print_record(void)
     {
         cout << "-----------------" << endl;
-        Product::print_record();
+        cout << "Title      :   " << this->title << endl;
+        cout << "Price      :   " << this->price << endl;
         cout << "Page count :   " << this->page_count << endl;
     }
 };
-class Tape : public Product
+class Tape
 {
 private:
+    string title;
+    float price;
     int playtime;
 
 public:
-    Tape(void) : playtime(0) {}
+    Tape(void) : title(""), price(0), playtime(0) {}
     void accept_record(void)
     {
-        Product::accept_record();
+        cout << "Title      :   ";
+        cin >> this->title;
+        cout << "Price      :   ";
+        cin >> this->price;
         cout << "Play time  :   ";
         cin >> this->playtime;
     }
     void print_record(void)
     {
         cout << "-----------------" << endl;
-        Product::print_record();
+        cout << "Title      :   " << this->title << endl;
+        cout << "Price      :   " << this->price << endl;
         cout << "Play time  :   " << this->playtime << endl;
     }
 };
