@@ -26,6 +26,6 @@ public:
 int main()
 {
     const Test t;
-    t.print_record();
+    // t.print_record();
     return 0;
 }
