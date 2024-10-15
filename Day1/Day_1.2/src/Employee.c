@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "../include/Employee.h"
-// Function to accept information of employee using pointer
+// Function to accept information of employee using pointer.
 void accept_record(struct Employee *ptr)
 {
     printf("Name            :   ");
