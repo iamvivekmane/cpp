@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "*.embeddedhtml": "html",
-        "system_error": "cpp",
-        "iostream": "cpp",
-        "iomanip": "cpp"
-    }
-}
